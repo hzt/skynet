@@ -98,6 +98,7 @@ static const char * load_config = "\
 
 int
 main(int argc, char *argv[]) {
+    //输入配置文件路径
 	const char * config_file = NULL ;
 	if (argc > 1) {
 		config_file = argv[1];
@@ -106,8 +107,9 @@ main(int argc, char *argv[]) {
 			"usage: skynet configfilename\n");
 		return 1;
 	}
-
+    //修改版lua添加的字符串共享模块,非修改版lua此函数空
 	luaS_initshr();
+    
 	skynet_globalinit();
 	skynet_env_init();
 
